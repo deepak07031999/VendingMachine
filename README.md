@@ -6,8 +6,8 @@ A Java implementation of a vending machine system using the State Design Pattern
 
 - **State-based Operations**: Implements different states (Idle, Insert Money, Selection, Dispense)
 - **Inventory Management**: Tracks items and quantities across multiple shelves
-- **Coin Handling**: Supports multiple coin denominations (TWO, TEN)
-- **Product Selection**: Interactive product selection with code-based identification
+- **Coin Handling**: Supports multiple coin denominations (ONE, TWO, FIVE, TEN)
+- **Product Selection**: Interactive product selection with code-based identification (codes 101-110)
 - **Change Calculation**: Automatic change return functionality
 
 ## Architecture
@@ -87,7 +87,7 @@ classDiagram
     class Coin {
         <<enumeration>>
         ONE(1)
-        TWO(5)
+        TWO(2)
         FIVE(5)
         TEN(10)
         +int value
@@ -107,10 +107,10 @@ classDiagram
 
 ## Available Products
 
-- **COKE**: ₹12 (Slots 0-2)
-- **PEPSI**: ₹9 (Slots 3-4)
-- **JUICE**: ₹13 (Slots 5-6)
-- **SODA**: ₹7 (Slots 7-9)
+- **COKE**: ₹12 (Codes 101-103)
+- **PEPSI**: ₹9 (Codes 104-105)
+- **JUICE**: ₹13 (Codes 106-107)
+- **SODA**: ₹7 (Codes 108-110)
 
 ## Requirements
 
@@ -130,7 +130,8 @@ mvn compile exec:java -Dexec.mainClass="org.deepak.Main"
 ```
 
 The application will:
-1. Initialize inventory with products
-2. Accept coin insertion
-3. Allow product selection via console input
+1. Initialize inventory with 10 slots of products
+2. Accept coin insertion (ONE, TWO, FIVE, TEN)
+3. Allow product selection via console input (codes 101-110)
 4. Dispense product and return change
+5. Display inventory status before and after transaction
